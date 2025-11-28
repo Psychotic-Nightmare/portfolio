@@ -10,7 +10,7 @@
   ],
   "functions": {
     "portfolio/api/server.js": {
-      "runtime": "nodejs20.x",
+      "runtime": "@vercel/node",
       "includeFiles": "portfolio/build/server/**"
     }
   }
