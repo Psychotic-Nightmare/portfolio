@@ -1,8 +1,7 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "build/client",
+  "buildCommand": "cd portfolio && npm install && npm run build",
+  "outputDirectory": "portfolio/build/client",
   "framework": null,
-  "installCommand": "npm install",
   "rewrites": [
     {
       "source": "/(.*)",
@@ -10,9 +9,9 @@
     }
   ],
   "functions": {
-    "api/server.js": {
+    "portfolio/api/server.js": {
       "runtime": "nodejs20.x",
-      "includeFiles": "build/server/**"
+      "includeFiles": "portfolio/build/server/**"
     }
   }
 }
