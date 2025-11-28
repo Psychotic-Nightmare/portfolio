@@ -78,6 +78,17 @@ export default defineConfig({
     dedupe: ['react', 'react-dom'],
   },
   clearScreen: false,
+  build: {
+    target: 'es2022',
+    rollupOptions: {
+      output: {
+        format: 'es',
+      },
+    },
+  },
+  esbuild: {
+    target: 'es2022',
+  },
   server: {
     allowedHosts: true,
     host: '0.0.0.0',
