@@ -1,6 +1,8 @@
 'use client';
 
-import { useIdleTimer } from 'react-idle-timer';
+// Handle CommonJS module import
+import pkg from 'react-idle-timer';
+const { useIdleTimer } = pkg;
 
 export function useDevServerHeartbeat() {
   useIdleTimer({
