@@ -6,7 +6,8 @@
 		"dev": "react-router dev",
 		"build": "react-router build",
 		"start": "react-router-serve ./build/server/index.js",
-		"typecheck": "react-router typegen && tsc --noEmit"
+		"typecheck": "react-router typegen && tsc --noEmit",
+		"deploy": "npm run build && touch build/client/.nojekyll"
 	},
 	"dependencies": {
 		"@auth/core": "^0.37.2",

@@ -1,8 +1,8 @@
 'use client';
 
-// Handle CommonJS module import
-import pkg from 'react-idle-timer';
-const { useIdleTimer } = pkg;
+// Use namespace import to handle both ESM and CommonJS
+import * as IdleTimer from 'react-idle-timer';
+const { useIdleTimer } = IdleTimer;
 
 export function useDevServerHeartbeat() {
   useIdleTimer({
