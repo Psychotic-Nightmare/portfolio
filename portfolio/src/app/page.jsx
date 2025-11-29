@@ -9,73 +9,69 @@ import {
   ChevronDown,
   MapPin,
   Lock,
+  User,
+  Sparkles,
 } from "lucide-react";
 
 export default function Portfolio() {
   // Map skill names to image filenames
   const getSkillImage = (name) => {
     const imageMap = {
-      "AWS": "aws.png",
-      "Azure": "azure.png",
-      "Docker": "docker.png",
-      "ECS/Fargate": "ecs.png",
+      AWS: "aws.png",
+      Azure: "azure.png",
+      GCP: "gcp.png",
+      Docker: "docker.png",
       "GitHub Actions": "github.png",
-      "CloudFormation": "cloudformation.webp",
-      "Lambda": "lambda.png",
-      "New Relic": "newrelic.png",
-      "Kubernetes": "kube.png",
-      "Python": "python.png",
-      "Jenkins": "jenkins.png",
-      "Ansible": "ansible.jpg",
-      "Azure DevOps": "azure-devops.webp",
-      "Azure Functions": "azure-function.png",
-      "Cloudflare": "cloudflare.png",
-      "Datadog": "datadog.png",
-      "GCP": "gcp.png",
-      "Grafana": "grafana.jpg",
-      "Salesforce": "salesforce.svg.png",
-      "Snowflake": "snowflake.png",
-      "Terraform": "terraform.webp",
+      Kubernetes: "kube.png",
+      Terraform: "terraform.webp",
+      Ansible: "ansible.svg",
+      Cloudflare: "cloudflare.png",
+      Datadog: "datadog.png",
+      Grafana: "grafana.png",
+      "CloudWatch": "]cloudwatch.png",
+      "New Relic": "new relic.png",
+      Python: "python.png",
+      "Bash / Shell": "bash.png",
+      "Node.js": "Node.js_logo.svg.png",
+      YAML: "yaml.png",
+      JSON: "json.jpg",
+      PowerShell: "powershell.png",
       "Azure Entra": "entra.png",
-      "GuardDuty": "AWS_GuardDuty_logo.png",
+      GuardDuty: "AWS_GuardDuty_logo.png",
       "Key Vault/Secret Manager": "lock.avif",
     };
     return `/portfolio/images/${imageMap[name] || "aws.png"}`;
   };
 
-  // Organized by category: Cloud Platforms → Containers → CI/CD → IaC → Monitoring → Security → Programming → CDN
-  const skills = [
-    // Cloud Platforms
-    { name: "AWS", color: "#FF9900" },
-    { name: "Azure", color: "#0078D4" },
-    { name: "GCP", color: "#4285F4" },
-    
-    // Containers & Orchestration
-    { name: "Docker", color: "#2496ED" },
-    { name: "Kubernetes", color: "#326CE5" },
-    
-    // CI/CD
-    { name: "GitHub Actions", color: "#181717" },
-    { name: "Jenkins", color: "#D33833" },
-    
-    // Infrastructure as Code
-    { name: "Terraform", color: "#7B42BC" },
-    { name: "Ansible", color: "#EE0000" },
-    
-    // Monitoring & Observability
-    { name: "Grafana", color: "#F46800" },
-    { name: "Datadog", color: "#632CA6" },
-    
-    // Security
-    { name: "Azure Entra", color: "#0078D4" },
-    { name: "Key Vault/Secret Manager", color: "#0062AD" },
-    { name: "GuardDuty", color: "#FF9900" },
-    
-    // Programming
-    { name: "Python", color: "#3776AB" },
-    
-    // CDN & Edge
-    { name: "Cloudflare", color: "#F38020" },
+  // Organized skills into clear senior-level categories
+  const skillCategories = [
+    {
+      name: "Cloud Platforms",
+      description: "Designing resilient, secure, and scalable cloud foundations.",
+      items: ["AWS", "Azure", "GCP"],
+    },
+    {
+      name: "DevOps & Infrastructure",
+      description: "Automating infrastructure and delivery across teams and regions.",
+      items: [
+        "Terraform",
+        "Ansible",
+        "Docker",
+        "Kubernetes",
+        "GitHub Actions",
+        "Cloudflare",
+      ],
+    },
+    {
+      name: "Observability & Reliability",
+      description: "Keeping platforms observable, debuggable, and highly available.",
+      items: ["Datadog", "Grafana", "CloudWatch", "New Relic", "GuardDuty", "Key Vault/Secret Manager"],
+    },
+    {
+      name: "Languages & Automation",
+      description: "Turning operational pain points into automated, repeatable workflows.",
+      items: ["Python", "Bash / Shell", "Node.js", "YAML", "JSON", "PowerShell"],
+    },
   ];
 
   const certifications = [
@@ -156,129 +152,104 @@ export default function Portfolio() {
     },
   ];
 
-  const projects = [
+  // Case-study style projects highlighting problem → solution → impact
+  const caseStudies = [
     {
-      title: "AWS Multi-Account Architecture",
-      description:
-        "Led AWS multi-account architecture for MyBambu U.S. and Colombia environments using AWS Organizations, IAM Identity Center, and cross-account roles.",
+      title: "Multi-Region Fintech Platform on AWS",
+      problem:
+        "Companie needed a secure, compliant, and highly available multi-region architecture to support payments across U.S. and LATAM without increasing operational overhead.",
+      solution:
+        "Designed and implemented a multi-account AWS landing zone using AWS Organizations, IAM Identity Center, GuardDuty, Config, and centralized logging, paired with ECS Fargate services and automated CI/CD pipelines.",
+      impact:
+        "Enabled expansion into new markets with 99.9%+ uptime, strong security posture, and clear separation of regulatory domains while keeping deployment velocity high.",
       tech: [
         "AWS Organizations",
-        "IAM Identity Center",
+        "ECS Fargate",
         "GuardDuty",
         "CloudTrail",
-      ],
-    },
-    {
-      title: "GitHub Enterprise Migration",
-      description:
-        "Successfully migrated entire development organization from Bitbucket to GitHub, establishing branch protection rules, org-level access controls, and CI/CD pipelines.",
-      tech: [
         "GitHub Actions",
-        "Branch Protection",
-        "CI/CD",
-        "Organizational Management",
+        "Terraform",
       ],
+      linkLabel: "Discuss this architecture",
+      linkHref:
+        "mailto:asanto92@outlook.com?subject=Multi-Region%20Fintech%20Platform%20Architecture",
     },
     {
-      title: "Fintech Payment Integrations",
-      description:
-        "Automated SFTP integrations with MoneyGram, Green Dot, and TransUnion using AWS Lambda, Paramiko, and python-gnupg for encrypted data transfer pipelines.",
-      tech: ["AWS Lambda", "Python", "GPG Encryption", "SFTP", "S3"],
-    },
-    {
-      title: "Real-Time Monitoring System",
-      description:
-        "Developed monitoring dashboards using New Relic, CloudWatch, and QuickSight for API reliability, vendor error tracking, and executive reporting.",
-      tech: [
-        "New Relic",
-        "CloudWatch",
-        "QuickSight",
-        "SNS",
-        "Slack Integration",
-      ],
-    },
-    {
-      title: "Data Orchestration Platform",
-      description:
-        "Collaborated with data engineers to automate and streamline data orchestration workflows, integrating Snowflake with AWS PostgreSQL databases for seamless data pipeline management.",
-      tech: [
-        "Snowflake",
-        "AWS RDS PostgreSQL",
-        "Data Pipeline",
-        "ETL Automation",
-        "Cross-Platform Integration",
-      ],
-    },
-    {
-      title: "Deployment Optimization & Automation",
-      description:
-        "Reduced deployment time by 82% (45 minutes to 8 minutes) by migrating from manual EC2 deployments to automated ECS Fargate with blue-green deployments, improving developer productivity and reducing deployment failures by 75%.",
+      title: "Deployment Optimization & CI/CD Standardization",
+      problem:
+        "Engineering teams were deploying via manual EC2 changes, leading to 45-minute releases, inconsistent environments, and frequent deployment failures.",
+      solution:
+        "Re-platformed workloads onto ECS Fargate with blue-green deployments and standardized GitHub Actions pipelines, including branching strategy, environment promotion, and automated testing gates.",
+      impact:
+        "Cut deployment time from 45 minutes to 8 minutes and reduced deployment-related incidents by ~75%, freeing engineers to ship features instead of fighting the pipeline.",
       tech: [
         "ECS Fargate",
+        "GitHub Actions",
         "Blue-Green Deployments",
-        "CI/CD",
         "AWS CodeDeploy",
         "Infrastructure Automation",
       ],
+      linkLabel: "View CI/CD approach",
+      linkHref:
+        "mailto:asanto92@outlook.com?subject=Deployment%20Optimization%20and%20CI%2FCD%20Standardization",
     },
     {
-      title: "Real-Time Fraud Detection & Compliance System",
-      description:
-        "Implemented intelligent fraud detection alerts that prevented $50K+ in potential compliance fines and reduced false positive rates by 40%, enabling real-time threat response and maintaining regulatory compliance.",
-      tech: [
-        "AWS GuardDuty",
-        "CloudWatch",
-        "SNS",
-        "Lambda",
-        "Real-Time Alerting",
-        "Compliance Automation",
-      ],
+      title: "Real-Time Fraud Detection & Compliance Automation",
+      problem:
+        "Fraud and compliance alerts were delayed and noisy, risking regulatory fines and making it hard for teams to separate real threats from false positives.",
+      solution:
+        "Implemented real-time fraud detection and compliance pipelines using GuardDuty, CloudWatch, Lambda, and SNS to send structured alerts to Slack channels with actionable context.",
+      impact:
+        "Avoided $50K+ in potential fines, reduced false positives by 40%, and gave operations teams a clear, real-time picture of risk across the platform.",
+      tech: ["GuardDuty", "CloudWatch", "Lambda", "SNS", "Slack Integration"],
+      linkLabel: "Ask about this system",
+      linkHref:
+        "mailto:asanto92@outlook.com?subject=Real-Time%20Fraud%20Detection%20System",
     },
     {
-      title: "Multi-Cloud Disaster Recovery & Cost Optimization",
-      description:
-        "Architected and automated disaster recovery solution across AWS and Azure regions, reducing RTO from 4 hours to 15 minutes. Implemented automated cost optimization policies saving $30K+ annually through right-sizing, reserved instance management, and automated resource scheduling.",
-      tech: [
-        "Terraform",
-        "AWS",
-        "Azure",
-        "CloudFormation",
-        "Cost Optimization",
-        "Disaster Recovery",
-        "Automation",
-      ],
+      title: "Multi-Cloud DR & Cost Optimization",
+      problem:
+        "Critical services needed stronger disaster recovery and cost controls across AWS and Azure without slowing down development teams.",
+      solution:
+        "Designed and automated a multi-region, multi-cloud DR strategy backed by Terraform and CloudFormation, including right-sizing, scheduling, and reserved instance strategies.",
+      impact:
+        "Reduced RTO from ~4 hours to ~15 minutes while saving $30K+ annually through automated cost optimization and more efficient resource usage.",
+      tech: ["Terraform", "CloudFormation", "AWS", "Azure", "Cost Optimization", "Disaster Recovery"],
+      linkLabel: "Review DR strategy",
+      linkHref:
+        "mailto:asanto92@outlook.com?subject=Multi-Cloud%20DR%20and%20Cost%20Optimization",
     },
   ];
 
+  const funFacts = [
+    "I believe in clear communication, turning complex cloud architecture into visuals and training that any team can understand.",
+    "I'm always building small automation tools, scripts, and processes that reduce operational friction.",
+    "Outside of tech, I'm usually experimenting with my homelab, exploring new tools that make life simpler, or staying consistent with strength training.",
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-100">
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col justify-center items-center px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-6 mt-16">
-            <div className="w-56 h-56 mx-auto mb-6 flex items-center justify-center">
-              <img 
-                src="/portfolio/ghost_transparent.png" 
+            <div className="w-40 h-40 md:w-56 md:h-56 mx-auto mb-6 flex items-center justify-center rounded-full bg-slate-900/40 border border-cyan-500/40 shadow-lg shadow-cyan-500/10">
+              <img
+                src="/portfolio/ghost_transparent.png"
                 alt="Anthony Santo - Cloud & DevOps Engineer"
-                className="w-full h-full object-contain drop-shadow-lg"
-                style={{ 
-                  filter: 'drop-shadow(0 0 20px rgba(6, 182, 212, 0.2))'
+                className="w-4/5 h-4/5 object-contain drop-shadow-lg"
+                style={{
+                  filter: "drop-shadow(0 0 20px rgba(6, 182, 212, 0.4))",
                 }}
               />
             </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 font-sans">
-            Anthony Santo
+          <p className="text-sm uppercase tracking-[0.3em] text-cyan-400/80 mb-4">
+            Senior Cloud &amp; DevOps Engineer
+          </p>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 font-sans leading-tight">
+            Building reliable, secure cloud platforms that teams can move fast on.
           </h1>
-          <p className="text-xl md:text-2xl text-cyan-400 mb-6">
-            Senior Cloud & DevOps Engineer
-          </p>
-          <p className="text-lg text-slate-300 mb-4 max-w-2xl mx-auto leading-relaxed">
-            8+ years of progressive IT experience specializing in cloud
-            infrastructure, automation, and DevOps leadership. Proven success in
-            architecting secure, scalable environments and modern CI/CD
-            pipelines.
-          </p>
           <div className="flex flex-wrap gap-4 justify-center text-slate-300 mb-8">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4" />
@@ -289,7 +260,7 @@ export default function Portfolio() {
               <span>asanto92@outlook.com</span>
             </div>
           </div>
-          <div className="flex gap-4 justify-center mb-12">
+          <div className="flex flex-wrap gap-4 justify-center mb-10">
             <a
               href="#contact"
               className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
@@ -300,7 +271,7 @@ export default function Portfolio() {
               href="#projects"
               className="border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors"
             >
-              View Projects
+              View Case Studies
             </a>
           </div>
         </div>
@@ -309,47 +280,83 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* About Section */}
+      <section id="about" className="py-20 px-6 bg-slate-900/70 border-t border-slate-800">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-6">
+            <User className="w-8 h-8 text-cyan-400" />
+            <h2 className="text-3xl md:text-4xl font-bold text-white">About</h2>
+          </div>
+          <p className="text-lg text-slate-300 leading-relaxed mb-4">
+            I&apos;m a senior-level Cloud &amp; DevOps engineer with 8+ years of experience designing,
+            building, and operating cloud platforms across AWS and Azure. My focus is on building
+            resilient architectures, automating everything that should be automated, and giving teams
+            the tools and guardrails they need to ship safely and quickly.
+          </p>
+          <p className="text-lg text-slate-300 leading-relaxed mb-4">
+            I specialize in multi-account AWS designs, infrastructure as code, containerized workloads,
+            CI/CD standardization, and observability for high-traffic, regulated environments like
+            fintech and energy. I enjoy owning problems end-to-end, from landing zone and security
+            baselines to deployment pipelines and incident response workflows.
+          </p>
+          <p className="text-lg text-slate-300 leading-relaxed">
+            The impact I care most about, fewer risky manual changes, faster and safer releases,
+            clear visibility into system health, and platforms that scale smoothly as the business grows.
+          </p>
+        </div>
+      </section>
+
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-6 bg-slate-800/50">
+      <section id="skills" className="py-20 px-6 bg-slate-800/60">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">
-            <Code className="w-10 h-10 inline-block mr-3 text-cyan-400" />
-            Technical Skills
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {skills.map((skill) => (
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              <Code className="w-8 h-8 inline-block mr-2 text-cyan-400" />
+              Technical Skills
+            </h2>
+            <p className="text-slate-300 max-w-2xl mx-auto">
+              A focused toolset for building secure, automated, and observable cloud platforms.
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2">
+            {skillCategories.map((category) => (
               <div
-                key={skill.name}
-                className="bg-slate-900/50 backdrop-blur-sm p-6 rounded-xl border border-slate-700 hover:border-cyan-500 transition-all hover:scale-105"
+                key={category.name}
+                className="bg-slate-900/60 backdrop-blur-sm p-6 rounded-xl border border-slate-700/80"
               >
-                <div className={`mb-4 mx-auto flex items-center justify-center ${
-                  skill.name === "Jenkins" || skill.name === "Azure Entra" 
-                    ? "w-16 h-16" 
-                    : "w-12 h-12"
-                }`}>
-                  {skill.name === "Key Vault/Secret Manager" ? (
-                    <Lock
-                      className="w-full h-full"
-                      style={{ color: skill.color }}
-                    />
-                  ) : (
-                    <img
-                      src={getSkillImage(skill.name)}
-                      alt={skill.name}
-                      className="w-full h-full object-contain"
-                      style={{
-                        backgroundColor: 'transparent',
-                        imageRendering: 'auto',
-                      }}
-                      onError={(e) => {
-                        console.error('Image failed to load:', getSkillImage(skill.name));
-                      }}
-                    />
-                  )}
-                </div>
-                <h3 className="text-white text-center font-semibold">
-                  {skill.name}
+                <h3 className="text-xl font-semibold text-white mb-1">
+                  {category.name}
                 </h3>
+                <p className="text-sm text-slate-400 mb-4">
+                  {category.description}
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                  {category.items.map((item) => (
+                    <div
+                      key={item}
+                      className="flex flex-col items-center gap-2 bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-3 hover:border-cyan-500/70 transition-all"
+                    >
+                      <div
+                        className={`mb-1 flex items-center justify-center ${
+                          item === "Key Vault/Secret Manager" ? "w-8 h-8" : "w-10 h-10"
+                        }`}
+                      >
+                        {item === "Key Vault/Secret Manager" ? (
+                          <Lock className="w-full h-full text-cyan-400" />
+                        ) : (
+                          <img
+                            src={getSkillImage(item)}
+                            alt={item}
+                            className="w-full h-full object-contain"
+                          />
+                        )}
+                      </div>
+                      <span className="text-sm text-slate-100 text-center">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
@@ -359,18 +366,23 @@ export default function Portfolio() {
       {/* Certifications Section */}
       <section id="certifications" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">
-            <Award className="w-10 h-10 inline-block mr-3 text-cyan-400" />
-            Certifications
-          </h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              <Award className="w-8 h-8 inline-block mr-2 text-cyan-400" />
+              Certifications
+            </h2>
+            <p className="text-slate-300 max-w-2xl mx-auto">
+              Validated expertise across AWS and Azure, backing hands-on delivery with formal credentials.
+            </p>
+          </div>
           <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
             {certifications.map((cert, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-xl border border-slate-700 hover:border-cyan-500 transition-all"
+                className="bg-gradient-to-br from-slate-800 to-slate-900 p-5 rounded-xl border border-slate-700 hover:border-cyan-500 transition-all"
               >
-                <Award className="w-12 h-12 text-cyan-400 mb-4" />
-                <h3 className="text-white font-semibold mb-2 text-sm">
+                <Award className="w-8 h-8 text-cyan-400 mb-3" />
+                <h3 className="text-white font-semibold mb-1 text-sm">
                   {cert.name}
                 </h3>
                 <p className="text-slate-400 text-xs mb-1">{cert.issuer}</p>
@@ -382,26 +394,33 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 px-6 bg-slate-800/50">
+      <section id="experience" className="py-20 px-6 bg-slate-800/60">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">
-            <Briefcase className="w-10 h-10 inline-block mr-3 text-cyan-400" />
-            Experience
-          </h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              <Briefcase className="w-8 h-8 inline-block mr-2 text-cyan-400" />
+              Experience
+            </h2>
+            <p className="text-slate-300 max-w-2xl mx-auto">
+              A track record of owning cloud, DevOps, and automation initiatives end-to-end.
+            </p>
+          </div>
           <div className="space-y-8">
             {experience.map((job, index) => (
               <div
                 key={index}
-                className="relative pl-8 border-l-2 border-cyan-500"
+                className="relative pl-8 border-l-2 border-cyan-500/80"
               >
-                <div className="absolute w-4 h-4 bg-cyan-500 rounded-full -left-[9px] top-0"></div>
-                <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+                <div className="absolute w-4 h-4 bg-cyan-500 rounded-full -left-[9px] top-0 shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
+                <div className="bg-slate-900/70 p-6 rounded-xl border border-slate-700">
                   <h3 className="text-xl font-bold text-white mb-1">
                     {job.title}
                   </h3>
-                  <p className="text-cyan-400 mb-2">{job.company}</p>
-                  <p className="text-slate-400 text-sm mb-3">{job.period}</p>
-                  <p className="text-slate-300 mb-3">{job.description}</p>
+                  <p className="text-cyan-400 mb-1 text-sm">{job.company}</p>
+                  <p className="text-slate-400 text-xs mb-3">{job.period}</p>
+                  <p className="text-slate-300 mb-3 text-sm leading-relaxed">
+                    {job.description}
+                  </p>
                   {job.bullets && (
                     <ul className="space-y-2 text-slate-300">
                       {job.bullets.map((bullet, bIndex) => (
@@ -421,54 +440,111 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects / Case Studies Section */}
       <section id="projects" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">
-            <Code className="w-10 h-10 inline-block mr-3 text-cyan-400" />
-            Featured Projects
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects.map((project, index) => (
-              <div
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              <Code className="w-8 h-8 inline-block mr-2 text-cyan-400" />
+              Case Studies
+            </h2>
+          <p className="text-slate-300 max-w-2xl mx-auto">
+              A selection of projects that show how I approach complex infrastructure, automation,
+              and reliability challenges.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {caseStudies.map((project, index) => (
+              <article
                 key={index}
-                className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-xl border border-slate-700 hover:border-cyan-500 transition-all hover:scale-105"
+                className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-xl border border-slate-700 hover:border-cyan-500 transition-all"
               >
                 <h3 className="text-xl font-bold text-white mb-3">
                   {project.title}
                 </h3>
-                <p className="text-slate-300 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="space-y-3 text-sm text-slate-200">
+                  <div>
+                    <span className="font-semibold text-cyan-300">
+                      Problem
+                    </span>
+                    <p className="text-slate-300 mt-1">{project.problem}</p>
+                  </div>
+                  <div>
+                    <span className="font-semibold text-cyan-300">
+                      Solution
+                    </span>
+                    <p className="text-slate-300 mt-1">{project.solution}</p>
+                  </div>
+                  <div>
+                    <span className="font-semibold text-cyan-300">
+                      Impact
+                    </span>
+                    <p className="text-slate-300 mt-1">{project.impact}</p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2 mt-4 mb-4">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30"
+                      className="bg-cyan-500/15 text-cyan-300 px-3 py-1 rounded-full text-xs border border-cyan-500/30"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-              </div>
+                {project.linkHref && (
+                  <a
+                    href={project.linkHref}
+                    className="inline-flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300"
+                  >
+                    {project.linkLabel}
+                  </a>
+                )}
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-slate-800/50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-8">Let's Connect</h2>
-          <p className="text-slate-300 mb-8 text-lg">
-            Interested in working together or discussing cloud infrastructure?
-            Reach out!
+      {/* Personality / Fun Facts Section */}
+      <section id="fun-facts" className="py-16 px-6 bg-slate-900/70 border-y border-slate-800">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-6">
+            <Sparkles className="w-7 h-7 text-cyan-400" />
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
+              Beyond the Cloud
+            </h2>
+          </div>
+          <p className="text-slate-300 mb-4">
+            The principles and interests that shape how I work.
           </p>
-          <div className="flex flex-wrap gap-6 justify-center">
+          <ul className="space-y-3 text-slate-200">
+            {funFacts.map((fact, index) => (
+              <li key={index} className="flex items-start">
+                <span className="text-cyan-400 mr-2 mt-1">•</span>
+                <span className="text-sm md:text-base">{fact}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-6 bg-slate-800/70">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Let&apos;s build something reliable together.
+          </h2>
+          <p className="text-slate-300 mb-10 text-lg max-w-2xl mx-auto">
+          Whether you're a startup looking to scale, modernizing infrastructure, or standardizing DevOps practices, I'd love to talk.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
             <a
               href="mailto:asanto92@outlook.com"
               className="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
             >
               <Mail className="w-5 h-5" />
-              Email Me
+              Email
             </a>
             <a
               href="https://www.linkedin.com/in/anthony-santo-b63b76152/"
@@ -484,11 +560,11 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-slate-700">
-        <div className="max-w-6xl mx-auto text-center text-slate-400">
+      <footer className="py-8 px-6 border-t border-slate-800 bg-slate-900/80">
+        <div className="max-w-6xl mx-auto text-center text-slate-500 text-sm">
           <p>
-            © 2025 Anthony Santo. Built with passion for cloud infrastructure
-            and DevOps excellence.
+            © {new Date().getFullYear()} Anthony Santo · Cloud &amp; DevOps Engineer ·
+            Focused on automation, scalable cloud architecture, and building reliable platforms.
           </p>
         </div>
       </footer>

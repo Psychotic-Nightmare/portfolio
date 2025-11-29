@@ -4,5 +4,6 @@ export default {
 	appDirectory: './src/app',
 	ssr: false,
 	prerender: false,
-	basename: '/portfolio',
+	// Match the Vite base (`/portfolio/`) so dev and build both work cleanly
+	basename: '/portfolio/',
 } satisfies Config;
