@@ -40,7 +40,7 @@ export default function Portfolio() {
       "GuardDuty": "AWS_GuardDuty_logo.png",
       "Key Vault/Secret Manager": "lock.avif",
     };
-    return `/images/${imageMap[name] || "aws.png"}`;
+    return `/portfolio/images/${imageMap[name] || "aws.png"}`;
   };
 
   // Organized by category: Cloud Platforms → Containers → CI/CD → IaC → Monitoring → Security → Programming → CDN
@@ -258,7 +258,7 @@ export default function Portfolio() {
           <div className="mb-6 mt-16">
             <div className="w-56 h-56 mx-auto mb-6 flex items-center justify-center">
               <img 
-                src="/ghost_transparent.png" 
+                src="/portfolio/ghost_transparent.png" 
                 alt="Anthony Santo - Cloud & DevOps Engineer"
                 className="w-full h-full object-contain drop-shadow-lg"
                 style={{ 
