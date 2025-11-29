@@ -4,4 +4,5 @@ export default {
 	appDirectory: './src/app',
 	ssr: false,
 	prerender: false,
+	basename: '/portfolio',
 } satisfies Config;
