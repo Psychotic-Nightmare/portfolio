@@ -21,11 +21,7 @@ interface ParentSitemap {
   }>;
 }
 
-export default function CreateDefaultNotFoundPage({
-  loaderData,
-}: {
-  loaderData: Awaited<ReturnType<typeof loader>>;
-}) {
+export default function CreateDefaultNotFoundPage() {
   const [siteMap, setSitemap] = useState<ParentSitemap | null>(null);
   const navigate = useNavigate();
 
@@ -51,11 +47,12 @@ export default function CreateDefaultNotFoundPage({
       };
     }
   }, []);
-  const missingPath = loaderData.path.replace(/^\//, '');
-  const existingRoutes = loaderData.pages.map((page) => ({
-    path: page.path,
-    url: page.url,
-  }));
+  
+  // Get path from URL for static build
+  const missingPath = typeof window !== 'undefined' 
+    ? window.location.pathname.replace(/^\//, '') 
+    : '';
+  const existingRoutes = [{ url: '/', path: 'Homepage' }];
 
   const handleBack = () => {
     navigate('/');
