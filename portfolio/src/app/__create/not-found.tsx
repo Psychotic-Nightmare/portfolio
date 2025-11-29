@@ -1,16 +1,5 @@
-import fg from 'fast-glob';
-import type { Route } from './+types/not-found';
 import { useNavigate } from 'react-router';
 import { useCallback, useEffect, useState } from 'react';
-
-// Disabled for static build
-// // Disabled for static build - provide default data
-export async function loader({ params }: Route.LoaderArgs) {
-  return {
-    path: `/${params['*'] || ''}`,
-    pages: [{ url: '/', path: 'Homepage' }],
-  };
-}
 
 interface ParentSitemap {
   webPages?: Array<{
