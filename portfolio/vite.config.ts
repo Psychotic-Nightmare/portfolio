@@ -35,10 +35,11 @@ export default defineConfig({
   plugins: [
     nextPublicProcessEnv(),
     restartEnvFileChange(),
-    reactRouterHonoServer({
-      serverEntryPoint: './__create/index.ts',
-      runtime: 'node',
-    }),
+    // Disabled for static GitHub Pages build
+    // reactRouterHonoServer({
+    //   serverEntryPoint: './__create/index.ts',
+    //   runtime: 'node',
+    // }),
     babel({
       include: ['src/**/*.{js,jsx,ts,tsx}'], // or RegExp: /src\/.*\.[tj]sx?$/
       exclude: /node_modules/, // skip everything else
