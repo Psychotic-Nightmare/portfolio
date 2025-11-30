@@ -108,7 +108,7 @@ export default function Portfolio() {
     {
       title: "Senior DevOps Engineer / DevOps Engineer",
       company: "MyBambu (Fintech / Payments Platform)",
-      period: "Mar 2024 – Present",
+      period: "Mar 2024 – Nov 2025",
       description:
         "Led company-wide GitHub migration from Bitbucket. Built ECS Fargate clusters, Lambda functions, and automated CI/CD pipelines. Currently architecting AWS multi-region environments for U.S. and LATAM operations.",
       bullets: [
