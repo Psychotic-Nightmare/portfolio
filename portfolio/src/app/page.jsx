@@ -247,7 +247,7 @@ export default function Portfolio() {
           <p className="text-sm uppercase tracking-[0.3em] text-cyan-400/80 mb-4">
             Senior Cloud &amp; DevOps Engineer
           </p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 font-sans leading-tight">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 font-sans leading-tight">
           Building modern, scalable cloud platforms that keep companies fast, secure, and resilient.
           </h1>
           <div className="flex flex-wrap gap-4 justify-center text-slate-300 mb-8">
