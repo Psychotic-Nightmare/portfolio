@@ -2,18 +2,18 @@
 
 Professional portfolio website showcasing my experience as a Senior Cloud & DevOps Engineer.
 
-## 🌐 Live Site
+## Live Site
 
 Visit the live portfolio: [https://psychotic-nightmare.github.io/portfolio/](https://psychotic-nightmare.github.io/portfolio/)
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Framework:** React Router v7
 - **Styling:** Tailwind CSS
 - **Deployment:** GitHub Pages
 - **CI/CD:** GitHub Actions
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 portfolio/
@@ -25,7 +25,7 @@ portfolio/
     └── workflows/    # GitHub Actions deployment workflow
 ```
 
-## 🛠️ Local Development
+## Local Development
 
 ```bash
 cd portfolio
@@ -35,7 +35,7 @@ npm run dev
 
 The site will be available at `http://localhost:4000`
 
-## 📦 Build
+## Build
 
 ```bash
 npm run build
@@ -43,22 +43,20 @@ npm run build
 
 Build output is in `build/client/` for static deployment.
 
-## 🚢 Deployment
+## Deployment
 
 Deployment is automated via GitHub Actions. Every push to `main` automatically:
 1. Builds the static site
 2. Deploys to GitHub Pages
 
-## 📄 License
+## License
 
 This portfolio is personal and proprietary.
 
-## 📧 Contact
+## Contact
 
 - **Email:** asanto92@outlook.com
 - **Location:** South Florida
 - **LinkedIn:** [View Profile](https://www.linkedin.com/in/your-profile)
 
 ---
-
-Built with ❤️ by Anthony Santo
