@@ -248,7 +248,7 @@ export default function Portfolio() {
             Senior Cloud &amp; DevOps Engineer
           </p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 font-sans leading-tight">
-            Building reliable, secure cloud platforms that teams can move fast on.
+          Building modern, scalable cloud platforms that keep companies fast, secure, and resilient.
           </h1>
           <div className="flex flex-wrap gap-4 justify-center text-slate-300 mb-8">
             <div className="flex items-center gap-2">
@@ -288,7 +288,7 @@ export default function Portfolio() {
             <h2 className="text-3xl md:text-4xl font-bold text-white">About</h2>
           </div>
           <p className="text-lg text-slate-300 leading-relaxed mb-4">
-            I&apos;m a senior-level Cloud &amp; DevOps engineer with 8+ years of experience designing,
+            I&apos;m a senior-level Cloud &amp; DevOps engineer with years of experience designing,
             building, and operating cloud platforms across AWS and Azure. My focus is on building
             resilient architectures, automating everything that should be automated, and giving teams
             the tools and guardrails they need to ship safely and quickly.
