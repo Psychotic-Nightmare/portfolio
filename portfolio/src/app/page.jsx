@@ -11,6 +11,7 @@ import {
   Lock,
   User,
   Sparkles,
+  FolderKanban,
 } from "lucide-react";
 
 export default function Portfolio() {
@@ -154,10 +155,11 @@ export default function Portfolio() {
 
   // Case-study style projects highlighting problem → solution → impact
   const caseStudies = [
+    // Row 1 — High-Level Architecture + DevOps Leadership
     {
       title: "Multi-Region Fintech Platform on AWS",
       problem:
-        "Companie needed a secure, compliant, and highly available multi-region architecture to support payments across U.S. and LATAM without increasing operational overhead.",
+        "Company needed a secure, compliant, and highly available multi-region architecture to support payments across U.S. and LATAM without increasing operational overhead.",
       solution:
         "Designed and implemented a multi-account AWS landing zone using AWS Organizations, IAM Identity Center, GuardDuty, Config, and centralized logging, paired with ECS Fargate services and automated CI/CD pipelines.",
       impact:
@@ -193,18 +195,60 @@ export default function Portfolio() {
       linkHref:
         "mailto:asanto92@outlook.com?subject=Deployment%20Optimization%20and%20CI%2FCD%20Standardization",
     },
+    // Row 2 — AI + Compliance-Focused Automation
     {
-      title: "Real-Time Fraud Detection & Compliance Automation",
+      title: "AI Customer Care Chatbot Platform",
       problem:
-        "Fraud and compliance alerts were delayed and noisy, risking regulatory fines and making it hard for teams to separate real threats from false positives.",
+        "Customer support team was overwhelmed with repetitive queries, leading to slow response times and high operational costs. Needed a scalable, secure solution that could handle multilingual support requests and integrate seamlessly with existing backend systems.",
       solution:
-        "Implemented real-time fraud detection and compliance pipelines using GuardDuty, CloudWatch, Lambda, and SNS to send structured alerts to Slack channels with actionable context.",
+        "Led cloud and DevOps implementation of an AI-powered customer care chatbot using AWS Amplify, ECS Fargate, Lambda, and OpenAI's API. Built secure token handling, rate limiting, and guardrail prompts, with auto-scaling infrastructure and CI/CD pipelines for zero-downtime deployments.",
       impact:
-        "Avoided $50K+ in potential fines, reduced false positives by 40%, and gave operations teams a clear, real-time picture of risk across the platform.",
+        "Improved average response times by 85% and reduced human support load by 60% for common queries, while maintaining enterprise-grade security and compliance standards through automated scanning and logging.",
+      tech: [
+        "AWS Amplify",
+        "ECS Fargate",
+        "Lambda",
+        "OpenAI API",
+        "CI/CD",
+        "Auto-Scaling",
+      ],
+      linkLabel: "Learn about this implementation",
+      linkHref:
+        "mailto:asanto92@outlook.com?subject=AI%20Customer%20Care%20Chatbot%20Platform",
+    },
+    {
+      title: "Real-Time Threat Detection & Compliance Automation",
+      problem:
+        "Security and compliance alerts were delayed and noisy, making it hard to identify real threats that could lead to fraud, data exposure, or compliance violations. Teams struggled to separate high-risk behavior from false positives, risking regulatory fines and security incidents.",
+      solution:
+        "Built a real-time threat detection and compliance pipeline using GuardDuty, CloudWatch, Lambda, and SNS. Normalized and enriched alerts with severity scoring, reduced noise through intelligent filtering, and sent structured alerts to Slack channels with actionable context to help prevent fraud and security incidents.",
+      impact:
+        "Reduced false positives by 40%, improved response times to security threats, and avoided $50K+ in potential compliance fines. Gave operations teams real-time visibility into high-risk behavior that could lead to fraud or data exposure, enabling proactive threat mitigation.",
       tech: ["GuardDuty", "CloudWatch", "Lambda", "SNS", "Slack Integration"],
       linkLabel: "Ask about this system",
       linkHref:
-        "mailto:asanto92@outlook.com?subject=Real-Time%20Fraud%20Detection%20System",
+        "mailto:asanto92@outlook.com?subject=Real-Time%20Threat%20Detection%20and%20Compliance%20Automation",
+    },
+    // Row 3 — Security, DLP, and Cost Optimization
+    {
+      title: "Automated Image Scanning & Compliance Pipeline",
+      problem:
+        "Customer-uploaded images could contain sensitive data like PAN numbers, PCI information, IDs, or non-permitted documents, creating compliance risk if stored in long-term S3 buckets without detection.",
+      solution:
+        "Designed and built an automated scanning pipeline using S3 Event Triggers, Lambda, Amazon Rekognition, and custom regex scanning with DLP service fallback. Images are scanned immediately before final storage commitment, with automatic quarantine, logging, and compliance team alerts for detected sensitive data.",
+      impact:
+        "Prevented sensitive data from entering long-lived storage, created comprehensive audit trails for compliance reporting, and reduced compliance risk exposure while maintaining sub-second processing times for legitimate uploads.",
+      tech: [
+        "AWS S3",
+        "Lambda",
+        "Amazon Rekognition",
+        "DLP Services",
+        "CloudWatch",
+        "SNS",
+      ],
+      linkLabel: "Explore this pipeline",
+      linkHref:
+        "mailto:asanto92@outlook.com?subject=Image%20Scanning%20and%20Compliance%20Pipeline",
     },
     {
       title: "Multi-Cloud DR & Cost Optimization",
@@ -445,7 +489,7 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              <Code className="w-8 h-8 inline-block mr-2 text-cyan-400" />
+              <FolderKanban className="w-8 h-8 inline-block mr-2 text-cyan-400" />
               Case Studies
             </h2>
           <p className="text-slate-300 max-w-2xl mx-auto">
